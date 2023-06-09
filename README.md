@@ -26,3 +26,4 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 2. ./vendor/bin/sail artisan make:migration create_companies_table
 3. ./vendor/bin/sail artisan make:migration create_clients_table
 4. ./vendor/bin/sail artisan make:migration create_sellers_table
+5. 
