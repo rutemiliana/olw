@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,6 +17,10 @@ class Sale extends Model
         'sold_at',
         'status',
         'total_amount'
+    ];
+
+    protected $casts = [
+        'status' => status::class
     ];
     
     public function client(): BelongsTo
