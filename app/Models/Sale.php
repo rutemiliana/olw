@@ -19,6 +19,7 @@ class Sale extends Model
         'total_amount'
     ];
 
+    //casts recebe um valor e converte ele.
     protected $casts = [
         'status' => status::class
     ];
