@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,9 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             UserSeeder::class,
         ]);
+
+        //atualiza o cache da materialized com os novos dados
+        DB::unprepared("REFRESH MATERIALIZED VIEW sales_commission_view");
+        
     }
 }
