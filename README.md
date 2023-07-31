@@ -37,3 +37,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 13. ./vendor/bin/sail artisan make:factory CompanyFactory
 14. ./vendor/bin/sail artisan make:factory SaleFactory,
 15. ./vendor/bin/sail artisan make:factory SellerFactory
+16. ./vendor/bin/sail artisan make:seeder AddressSeeder
+17. ./vendor/bin/sail artisan make:seeder CompanySeeder
+18. ./vendor/bin/sail artisan make:seeder UserSeeder
+19. ./vendor/bin/sail artisan db:seed
