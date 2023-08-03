@@ -43,3 +43,5 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 19. ./vendor/bin/sail artisan db:seed
 20. ./vendor/bin/sail artisan make:model SalesCommission
 21. ./vendor/bin/sail artisan make:controller ClientController -m Client --requests
+./vendor/bin/sail composer require laravel/breeze
+./vendor/bin/sail artisan breeze:install
