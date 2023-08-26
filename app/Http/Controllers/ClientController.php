@@ -34,7 +34,7 @@ class ClientController extends Controller
     public function store(StoreClientRequest $request)
     {
         //dd($request->all());
-        //Função transaction cria um escopo pois para existir um client, deve existir um user antes. Caso a criação do primeiro não dê certo ou o segundo, ele desfaz tudo que foi feito e não segue com a criação de ambos
+        //Função transaction usada quando manipulamos 2 tabelas diferentes, cria um escopo pois para existir um client, deve existir um user antes. Caso a criação do primeiro não dê certo ou o segundo, ele desfaz tudo que foi feito e não segue com a criação de ambos
 
         DB::transaction(function() use($request){
     
@@ -65,7 +65,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -73,7 +73,19 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        DB::transaction(function() use($request, $client){
+    
+            $client->user->update([
+                'email' => $request->get('email'),
+                'name' => $request->get('name'),
+            ]);
+
+            $client->update([
+                'address_id' => $request->get('address_id'),
+            ]);
+        });
+
+        return redirect()->route('clients.index');
     }
 
     /**
